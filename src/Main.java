@@ -12,45 +12,39 @@ public class Main {
     private String[] kartaGracza;
     private String TEMP;
     private JFrame frame = new JFrame();
-    JButton buttonRozpocznij = new JButton();
-    JButton buttonDodoajDoBanku = new JButton();
+    private JButton buttonRozpocznij = new JButton();
+    private JButton buttonDodajDoBanku = new JButton();
     private int BANK = 0;
-    JLabel L1 = new JLabel();
+    private JLabel L1 = new JLabel();
 
     private Main() {
 
         frame.setTitle("Poker");
         frame.setSize(900, 700);
+        frame.setLocation(1000,100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Losowanie kart:
-
 
         buttonRozpocznij.setText("Rozpocznij grę");
         buttonRozpocznij.setBounds(650, 10, 200, 30);
         frame.add(buttonRozpocznij);
-        frame.setLocation(1000,100);
         buttonRozpocznij.setVisible(true);
-
-
 
         buttonRozpocznij.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 losowanieKart();
-                System.out.println("TEST");
-
-                buttonRozpocznij.setVisible(true);
+                System.out.println("Wylosowano");
             }
         });
 
-        buttonDodoajDoBanku.setText("Dodaj do Banku $10");
-        buttonDodoajDoBanku.setBounds(650, 40, 200, 30);
-        frame.add(buttonDodoajDoBanku);
-        frame.setLocation(1000,100);
-        buttonDodoajDoBanku.setVisible(true);
+        buttonDodajDoBanku.setText("Dodaj do Banku $10");
+        buttonDodajDoBanku.setBounds(650, 40, 200, 30);
+        frame.add(buttonDodajDoBanku);
+        buttonDodajDoBanku.setVisible(true);
 
-        buttonDodoajDoBanku.addActionListener(new ActionListener() {
+        buttonDodajDoBanku.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -101,7 +95,6 @@ public class Main {
                     TEMP = kartaKomputera[f];
                     kartaKomputera[f] = kartaKomputera[f-1];
                     kartaKomputera[f-1] = TEMP;
-                    kartaKomputera[f-1] = TEMP;
                 }
             }
         }
@@ -126,7 +119,6 @@ public class Main {
                 if (Integer.valueOf(kartaGracza[f].substring(0,2)) < Integer.valueOf(kartaGracza[f-1].substring(0,2))) {
                     TEMP = kartaGracza[f];
                     kartaGracza[f] = kartaGracza[f-1];
-                    kartaGracza[f-1] = TEMP;
                     kartaGracza[f-1] = TEMP;
                 }
             }
